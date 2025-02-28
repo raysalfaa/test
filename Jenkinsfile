@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_URL = 'sonarQube'
+        SONARQUBE_URL = 'http://localhost:9000'
         sonarHome=tool 'sonarQubeScanner'
     }
 
