@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         SONARQUBE_URL = 'sonarQube'
+        sonarHome=tool 'sonarQubeScanner'
     }
 
     stages {
@@ -14,7 +15,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                def sonarHome=tool 'sonarQubeScanner';
+                
                 withSonarQubeEnv('sonarQube') {
                     sh '${sonarHome}/bin/sonar-scanner --version'
                 }
