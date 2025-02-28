@@ -17,7 +17,15 @@ pipeline {
             steps {
                 
                 withSonarQubeEnv('sonarQube') {
-                    sh '${sonarHome}/bin/sonar-scanner --version'
+                    // sh '${sonarHome}/bin/sonar-scanner --version'
+                    sh '''
+                    ${sonarHome}/bin/sonar-scanner \
+                        -Dsonar.projectKey=jenkinscanner \
+                        -Dsonar.sources=. \
+                        -Dsonar.language=py \
+                        -Dsonar.python.version=3 \
+                        -Dsonar.host.url=$SONARQUBE_URL
+                    '''
                 }
             }
         }
