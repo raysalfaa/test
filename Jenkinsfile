@@ -14,10 +14,11 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonarQube') {
-                    sh 'sonar-scanner'
+                withSonarQubeEnv('SonarQube') {
+                    sh '/usr/local/bin/sonar-scanner'
                 }
             }
         }
+
     }
 }
