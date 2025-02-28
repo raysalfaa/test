@@ -17,7 +17,6 @@ pipeline {
             steps {
                 
                 withSonarQubeEnv('sonarQube') {
-                    // sh '${sonarHome}/bin/sonar-scanner --version'
                     sh '''
                     ${sonarHome}/bin/sonar-scanner \
                         -Dsonar.projectKey=jenkinscanner \
